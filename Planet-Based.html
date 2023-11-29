@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2299.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.3px '.SF NS Mono'; color: #1b1f23; -webkit-text-stroke: #1b1f23; background-color: #f9f9f9}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.3px '.SF NS Mono'; color: #1b1f23; -webkit-text-stroke: #1b1f23; background-color: #f9f9f9; min-height: 15.0px}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;Planet Game&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>body {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-family: 'Arial', sans-serif;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>#console {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-family: 'Courier New', monospace;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>white-space: pre-wrap;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background-color: #000;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #fff;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>button {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 5px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>cursor: pointer;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div id="console"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;button onclick="gamePlanet.cultivate('soy')"&gt;Cultivate Soy&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;button onclick="gamePlanet.cultivate('rice')"&gt;Cultivate Rice&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;button onclick="gamePlanet.raise('cattle')"&gt;Raise Cattle&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;button onclick="gamePlanet.raise('fish')"&gt;Raise Fish&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;button onclick="gamePlanet.raise('fruits')"&gt;Raise Fruits&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;button onclick="gamePlanet.raise('vegetables')"&gt;Raise Vegetables&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;button onclick="gamePlanet.quit()"&gt;Quit&lt;/button&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Define the Planet class</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>class Planet {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>constructor() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>this.resources = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>water: 100,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>soil: 100,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>sunlight: 100,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>soy: 10,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>rice: 10,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>cattle: 5,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>fish: 5,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>fruits: 8,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>vegetables: 8,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>this.population = 10;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>this.animalPopulation = 5;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>this.povertyLevel = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>this.globalWarming = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>this.health = 100;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>this.daysSurvived = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>this.isGameOver = false;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>// Function to update the game state for each day</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>async update() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// ... (unchanged code)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Display current state</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>this.display();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>// Function to display the current state of the planet</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById('console').innerHTML = `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>Day ${this.daysSurvived}&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>Population: ${this.population}&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>Animal Population: ${this.animalPopulation}&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>Water: ${this.resources.water}&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>Soil: ${this.resources.soil}&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>Sunlight: ${this.resources.sunlight}&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>Soy: ${this.resources.soy}&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>Rice: ${this.resources.rice}&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>Cattle: ${this.resources.cattle}&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>Fish: ${this.resources.fish}&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>Fruits: ${this.resources.fruits}&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>Vegetables: ${this.resources.vegetables}&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>Poverty Level: ${this.povertyLevel}&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>Global Warming: ${this.globalWarming}&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>Health: ${this.health}&lt;br&gt;`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>// Function to cultivate a resource</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>cultivate(type) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (this.resources.water &gt;= 10 &amp;&amp; this.resources.soil &gt;= 10 &amp;&amp; this.resources.sunlight &gt;= 10) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>this.resources.water -= 10;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>this.resources.soil -= 10;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>this.resources.sunlight -= 10;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>this.resources[type] += 5;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>console.log(`Cultivated ${type}.`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>console.log("Not enough resources for cultivation.");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>// Function to raise animals or plants</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>raise(type) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (this.resources[type] &gt;= 5) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>this.resources[type] -= 5;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>this.animalPopulation += 2;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>console.log(`Raised ${type}.`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>console.log(`Not enough ${type} for raising.`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>// Function to quit the game</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>quit() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>this.isGameOver = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>console.log("Quitting the game.");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>// ... (other methods)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Example usage</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const gamePlanet = new Planet();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Game loop</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>async function gameLoop() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>while (!gamePlanet.isGameOver) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Update game state for the next day</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>await gamePlanet.update();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Start the game loop</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>gameLoop();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>

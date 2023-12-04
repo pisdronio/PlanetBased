@@ -65,6 +65,11 @@
         // Handle random events
         this.handleRandomEvent();
 
+        // Adjust resources based on dynamic factors (simplified for demonstration)
+        this.resources.water += Math.floor(Math.random() * 6) - 3; // +/- 3 units
+        this.resources.soil += Math.floor(Math.random() * 6) - 3;
+        this.resources.sunlight += Math.floor(Math.random() * 6) - 3;
+
         // ... (unchanged code)
 
         // Display current state
@@ -93,8 +98,116 @@
           this.health -= 10;
         }
 
+        // Additional Events with Lower Probabilities
+        else if (eventChance < 0.25) {
+          console.log("Alien Encounter! Technology boost or threat.");
+          this.handleAlienEncounter();
+        } else if (eventChance < 0.3) {
+          console.log("Technology Breakthrough! Resource production improves.");
+          this.handleTechnologyBreakthrough();
+        } else if (eventChance < 0.35) {
+          console.log("Natural Resource Discovery! Temporary resource boost.");
+          this.handleResourceDiscovery();
+        } else if (eventChance < 0.4) {
+          console.log("Energy Crisis! Decline in productivity.");
+          this.handleEnergyCrisis();
+        } else if (eventChance < 0.45) {
+          console.log("Civil Unrest! Population dissatisfaction leads to challenges.");
+          this.handleCivilUnrest();
+        } else if (eventChance < 0.5) {
+          console.log("Migration Waves! Impact on resources and opportunities.");
+          this.handleMigrationWaves();
+        } else if (eventChance < 0.55) {
+          console.log("Space Debris Impact! Damage to resources and infrastructure.");
+          this.handleSpaceDebrisImpact();
+        } else if (eventChance < 0.6) {
+          console.log("Epidemic! Contagious disease spreads.");
+          this.handleEpidemic();
+        } else if (eventChance < 0.65) {
+          console.log("Resource Abundance! Temporary boost in production.");
+          this.handleResourceAbundance();
+        } else if (eventChance < 0.7) {
+          console.log("Renewable Energy Revolution! Positive impact on the environment.");
+          this.handleRenewableEnergyRevolution();
+        } else if (eventChance < 0.75) {
+          console.log("Rogue AI Threat! Manage and mitigate the impact of a rogue AI.");
+          this.handleRogueAIThreat();
+        } else if (eventChance < 0.8) {
+          console.log("Resource Conservation Movement! Influence on decision-making.");
+          this.handleResourceConservationMovement();
+        }
+
+        // Epidemic has a higher chance if raising animals
+        if (eventChance < 0.9 && this.animalPopulation > 10) {
+          console.log("Epidemic! Contagious disease spreads due to animal raising.");
+          this.handleEpidemic();
+        }
+
         // Add more random events as needed
       }
+
+      // Placeholder functions for event effects
+      handleAlienEncounter() {
+        // Implement the effect of the event
+        console.log("Alien Encounter Placeholder Effect");
+      }
+
+      handleTechnologyBreakthrough() {
+        // Implement the effect of the event
+        console.log("Technology Breakthrough Placeholder Effect");
+      }
+
+      handleResourceDiscovery() {
+        // Implement the effect of the event
+        console.log("Natural Resource Discovery Placeholder Effect");
+      }
+
+      handleEnergyCrisis() {
+        // Implement the effect of the event
+        console.log("Energy Crisis Placeholder Effect");
+      }
+
+      handleCivilUnrest() {
+        // Implement the effect of the event
+        console.log("Civil Unrest Placeholder Effect");
+      }
+
+      handleMigrationWaves() {
+        // Implement the effect of the event
+        console.log("Migration Waves Placeholder Effect");
+      }
+
+      handleSpaceDebrisImpact() {
+        // Implement the effect of the event
+        console.log("Space Debris Impact Placeholder Effect");
+      }
+
+      handleEpidemic() {
+        // Implement the effect of the event
+        console.log("Epidemic Placeholder Effect");
+      }
+
+      handleResourceAbundance() {
+        // Implement the effect of the event
+        console.log("Resource Abundance Placeholder Effect");
+      }
+
+      handleRenewableEnergyRevolution() {
+        // Implement the effect of the event
+        console.log("Renewable Energy Revolution Placeholder Effect");
+      }
+
+      handleRogueAIThreat() {
+        // Implement the effect of the event
+        console.log("Rogue AI Threat Placeholder Effect");
+      }
+
+      handleResourceConservationMovement() {
+        // Implement the effect of the event
+        console.log("Resource Conservation Movement Placeholder Effect");
+      }
+
+      // ... (other methods)
 
       // Function to display the current state of the planet
       display() {
@@ -114,36 +227,6 @@
           Poverty Level: ${this.povertyLevel}<br>
           Global Warming: ${this.globalWarming}<br>
           Health: ${this.health}<br>`;
-      }
-
-      // Function to cultivate a resource
-      cultivate(type) {
-        if (this.resources.water >= 10 && this.resources.soil >= 10 && this.resources.sunlight >= 10) {
-          this.resources.water -= 10;
-          this.resources.soil -= 10;
-          this.resources.sunlight -= 10;
-          this.resources[type] += 5;
-          console.log(`Cultivated ${type}.`);
-        } else {
-          console.log("Not enough resources for cultivation.");
-        }
-      }
-
-      // Function to raise animals or plants
-      raise(type) {
-        if (this.resources[type] >= 5) {
-          this.resources[type] -= 5;
-          this.animalPopulation += 2;
-          console.log(`Raised ${type}.`);
-        } else {
-          console.log(`Not enough ${type} for raising.`);
-        }
-      }
-
-      // Function to quit the game
-      quit() {
-        this.isGameOver = true;
-        console.log("Quitting the game.");
       }
 
       // ... (other methods)
